@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigation</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#invest" class="btn_active">Investigation</a>
+                        <div class="smenu">
+                            <a href="#objectivex" class="target">Objective</a>
+                            <a href="#study">Study</a>
+                            <a href="#first_exhibit" class="target">Exhibit 1</a>
+                            <a href="#second_exhibit" class="target">Exhibit 2</a>
+                            <a href="#third_exhibit" class="target">Exhibit 3</a>
+                        </div>
+                    </li>
+                    <li class="item" id="analysis">
+                        <a onclick="SaveToLocalStorage()" class="btn">Analysis</a>
+                    </li>
+                    <li class="item" id="report">
+                        <a href="#" class="btn">Report</a>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        <h2 id="forward">Do you want to move forward?</h2><br>
+                        <p id="inside_confirm_p">If you have collected all the relevant information
+                            you can now move to the Analysis phase.</p>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to Investigation</button>
+                        <button onclick="SaveToLocalStorage()" class="confirm_btn">Move
+                            to
+                            Analysis</button>
+                    </div>
+                </div>
+
+                <div id="objective" class=container>
+                    <div id="research_info_title" class=container>Research Information</div><br>
+                    <div class="the_main_text">The Aldarin Island is home to a diverse range of animals, the vast
+                        majority of which are herbivores.
+                        For years, these herbivores have thrived due to the minimal presence of predators and the
+                        Island's
+                        isolation causing it to be untouched by human development.</div>
+                    <br>
+                    <div class="the_main_text">However, <div class="draggable study_drag" draggable="true"
+                            id="coyote_intro" data-title="Introduction of Dashed Coyotes" style="display: inline;">5
+                            years ago</div>, a pack of Dashed Coyotes were introduced to the Island through unknown
+                        means. This has disrupted the ecological equilibrium of the Island, and the herbivore population
+                        has
+                        been declining year-by-year since.</div>
+                    <br>
+                    <div class="the_main_text">Your team of ecologists have been assigned to study the population
+                        dynamics of various species on
+                        the Island.</div>
+                    <br>
+                    <div id="objectivex" class=container>Objective</div><br>
+                    <div class="draggable" id="objective_line" data-title="Objective">Review the data and identify the
+                        percentage of prey death in Mistveil and Bluebell Woods due to Dashed Coyotes.
+                    </div>
+
+                </div>
+                <div id="study" class="container"><br>
+                    Study Information
+                    <div class="container"><br>
+                        The four main prey for Dashed Coyotes were tracked and their population, split across the four
+                        areas
+                        of the Aldarin Island, are as follows:
+                    </div>
+                </div>
+                <div id="first_exhibit" class="container">
+                    <br> Exhibit 1: Primary Prey Population Across Zones on Aldarin Island
+                    <table class="exhibit-table">
+                        <thead>
+                            <tr>
+                                <th>Zones</th>
+                                <th>Marmot</th>
+                                <th>Chinchilla</th>
+                                <th>Hare</th>
+                                <th>Gopher</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Teklan Hills</td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable1"
+                                        data-title="Marmot population in Teklan Hills" data-value="600">600</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable2"
+                                        data-title="Chinchilla population in Teklan Hills" data-value="570">570</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable3"
+                                        data-title="Hare population in Teklan Hills" data-value="620">620</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable4"
+                                        data-title="Gopher population in Teklan Hills" data-value="800">800</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mistveil Woods</td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable5"
+                                        data-title="Marmot population in Mistveil Woods" data-value="550">550</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable6"
+                                        data-title="Chinchilla population in Mistveil Woods" data-value="820">820</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable7"
+                                        data-title="Hare population in Mistveil Woods" data-value="1200">1,200</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable8"
+                                        data-title="Gopher population in Mistveil Woods" data-value="430">430</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bluebell Woods</td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable9"
+                                        data-title="Marmot population in Bluebell Woods" data-value="700">700</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable10"
+                                        data-title="Chinchilla population in Bluebell Woods" data-value="1080">1,080
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable11"
+                                        data-title="Hare population in Bluebell Woods" data-value="1360">1,360</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable12"
+                                        data-title="Gopher population in Bluebell Woods" data-value="610">610</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Rosefield</td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable13"
+                                        data-title="Marmot population in Rosefield" data-value="710">710</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable14"
+                                        data-title="Chinchilla population in Rosefield" data-value="870">870</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable15"
+                                        data-title="Hare population in Rosefield" data-value="430">430</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit_draggable16"
+                                        data-title="Gopher population in Rosefield" data-value="1000">1,000</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container study-text">
+                    <br>
+                    While Coyotes do hunt other animals, they make up only <div class="draggable study_drag"
+                        draggable="true" id="other_prey_diet"
+                        data-title="Other preys' contribution towards Dashed Coyote diets">an insignificant portion of
+                        their diets</div>.<br><br>
+
+                    To further understand how the Coyotes are impacting the population of the prey above, your team
+                    begun charting the packs active in each zone. The following are the results:
+                </div>
+                <div id="second_exhibit" class="container">
+                    <br> Exhibit 2: Dashed Coyote Hunting Behavior Across Zones on Aldarin Island
+                    <table class="exhibit-table">
+                        <thead>
+                            <tr>
+                                <th>Zones</th>
+                                <th>Kill Rate</th>
+                                <th>Total Prey Killed</th>
+                                <th>Days Tracked</th>
+                                <th>Pack Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Teklan Hills</td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable1"
+                                        data-title="Kill rate in Teklan Hills" data-value="0.31">0.31</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable2"
+                                        data-title="Total prey killed in Teklan Hills" data-value="28">28</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable3"
+                                        data-title="Days tracked in Teklan Hills" data-value="10">10</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable4"
+                                        data-title="Pack size in Teklan Hills" data-value="9">9</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Mistveil Woods</td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable5"
+                                        data-title="Kill rate in Mistveil Woods" data-value="0.35">0.35</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable6"
+                                        data-title="Total prey killed in Mistveil Woods" data-value="30">30</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable7"
+                                        data-title="Days tracked in Mistveil Woods" data-value="17">17</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable8"
+                                        data-title="Pack size in Mistveil Woods" data-value="5">5</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bluebell Woods</td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable9"
+                                        data-title="Kill rate in Bluebell Woods" data-value="0.30">0.30</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable10"
+                                        data-title="Total prey killed in Bluebell Woods" data-value="40">40</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable11"
+                                        data-title="Days tracked in Bluebell Woods" data-value="12">12</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable12"
+                                        data-title="Pack size in Bluebell Woods" data-value="11">11</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Rosefield</td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable13" data-title="Kill rate in Rosefield"
+                                        data-value="0.42">0.42</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable14"
+                                        data-title="Total prey killed in Rosefield" data-value="30">30</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable15"
+                                        data-title="Days tracked in Rosefield" data-value="9">9</div>
+                                </td>
+                                <td>
+                                    <div class="draggable" id="exhibit2_draggable16" data-title="Pack size in Rosefield"
+                                        data-value="8">8</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container study-text">
+                    <br>
+                    Note that kill rates are calculated as <div class="draggable study_drag" draggable="true"
+                        id="kill_rate_def" data-title="Definition of kill rate">number of the four mapped prey killed
+                        per day per Coyote</div>. It
+                    can be assumed that <div class="draggable study_drag" draggable="true" id="hunting_behavior"
+                        data-title="Dashed Coyote hunting behavior">the four species are killed proportionately to their
+                        population</div>. <div class="draggable study_drag" draggable="true" id="year_days"
+                        data-title="Kill rate over the year">Once calculated,
+                        the kill rate is expected to remain constant throughout the year (365 days)</div>. The
+                    calculated kill rates
+                    and the prey populations are used to monitor the predator/prey balance over the year.<br><br>
+
+                    Since the data in Exhibit 2 was collected, your team was able to track each pack for an <div
+                        class="draggable study_drag" draggable="true" id="additional_tracking"
+                        data-title="Additional Dashed Coyote tracking time">additional 8 days</div>. The following
+                    additional data was noted:<br><br>
+
+                    <div class="container study-text" ;>
+                        <li>
+                            <div class="draggable study_drag" draggable="true" id="additional_data_1"
+                                data-title="Additional data #1">Teklan Hills pack size reduced by 1</div>
+                        </li>
+                        <li>
+                            <div class="draggable study_drag" draggable="true" id="additional_data_2"
+                                data-title="Additional data #2">Teklan Hills prey killed increased by 28</div>
+                        </li>
+                        <li>
+                            <div class="draggable study_drag" draggable="true" id="additional_data_3"
+                                data-title="Additional data #3">Mistveil Woods pack size increased by 1</div>
+                        </li>
+                        <li>
+                            <div class="draggable study_drag" draggable="true" id="additional_data_4"
+                                data-title="Additional data #4">Mistveil Woods prey killed increased by 30</div>
+                        </li>
+                        <li>
+                            <div class="draggable study_drag" draggable="true" id="additional_data_5"
+                                data-title="Additional data #5">Bluebell Woods prey killed increased by 26</div>
+                        </li>
+                        <li>
+                            <div class="draggable study_drag" draggable="true" id="additional_data_6"
+                                data-title="Additional data #6">Rosefield prey killed increased by 33</div>
+                        </li>
+                    </div>
+                    <br>
+                    In addition to being hunted by Coyotes, the tracked prey can also lose their population to illness
+                    and
+                    disease; the estimated death rates are as follows:
+                    <div id="third_exhibit" class="container">
+                        <br> Exhibit 3: Estimated Death Rate from Illness and Disease
+                        <table class="exhibit-table">
+                            <thead>
+                                <tr>
+                                    <th>Species</th>
+                                    <th>Death Rate (% of starting population)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Marmot</td>
+                                    <td>
+                                        <div class="draggable" id="exhibit3_draggable1"
+                                            data-title="Marmot death rate due to illness and disease (%)"
+                                            data-value="10">10
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Chinchilla</td>
+                                    <td>
+                                        <div class="draggable" id="exhibit3_draggable2"
+                                            data-title="Chinchilla death rate due to illness and disease (%)"
+                                            data-value="15">15</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hare</td>
+                                    <td>
+                                        <div class="draggable" id="exhibit3_draggable3"
+                                            data-title="Hare death rate due to illness and disease (%)" data-value="5">5
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Gopher</td>
+                                    <td>
+                                        <div class="draggable" id="exhibit3_draggable4"
+                                            data-title="Gopher death rate due to illness and disease (%)"
+                                            data-value="10">10
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="container study-text">
+                    <br>
+
+                    <div>
+                        <button class="end_btn" onclick="showConfirmBox()">Complete Investigation</button>
+                    </div>
+                    <div class="container"> <br><br><br></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="right_screen" id="journal_container">
+            <div class="journal_container" contenteditable="true">
+                Research Journal
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

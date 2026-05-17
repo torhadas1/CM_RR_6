@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Cases | Case 5</title>
+    <link rel="stylesheet" href="./style/cases_general.css">
+    <link rel="stylesheet" href="./style/case_2.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="" id="invest">
+                        <a href="" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="" class="target">Case 1</a>
+                            <a href="" class="target">Case 2</a>
+                            <a href="" class="target">Case 3</a>
+                            <a href="" class="target">Case 4</a>
+                            <a href="" class="btn_active">Case 5</a>
+                            <a href="" class="target">Case 6</a>
+
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column" style="width: 85%; height: 110vh;">
+            <div class="question_container" style="margin-top: 30px;">
+                Ecologists on the Aldarin Island measured the year-over-year percentage change in successful fledglings
+                (i.e., recently-born birds that successfully grew enough to begin flying) for three seabird species
+                across the four coasts of the Island. The table below shows the percentage change compared to the
+                previous year:
+                <br><br>
+                <table class="exhibit-table">
+                    <thead>
+                        <tr>
+                            <th>Coast</th>
+                            <th>Cliff Gulls (%)</th>
+                            <th>Sand Terns (%)</th>
+                            <th>Reef Petrels (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>North Reach</td>
+                            <td>+8</td>
+                            <td>+16</td>
+                            <td>+10</td>
+                        </tr>
+                        <tr>
+                            <td>East Inlet</td>
+                            <td>+5</td>
+                            <td>+15</td>
+                            <td>+9</td>
+                        </tr>
+                        <tr>
+                            <td>South Cliffs</td>
+                            <td>+10</td>
+                            <td>+9</td>
+                            <td>+7</td>
+                        </tr>
+                        <tr>
+                            <td>West Shoals</td>
+                            <td>+6</td>
+                            <td>+8</td>
+                            <td>+11</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <br>
+                <div id="the_question_title">Question <br><br></div>
+
+                <p id="the_question">Which of the following statements are supported by the data? You may select more
+                    than one.
+
+                </p><br>
+                <form id="Case 5">
+                    <label for="Case 5 a" style="margin-bottom: 10px;">
+                        <input type="checkbox" id="Case 5 a" name="case_4_checkbox"
+                            value="Sand Terns experienced the fastest overall breeding success growth on the Aldarin Island.">
+                        Sand Terns experienced the fastest overall breeding success growth on the Aldarin Island.
+                    </label>
+
+                    <label for="Case 5 b" style="margin-bottom: 10px;"> <input type="checkbox" id="Case 5 b"
+                            name="case_4_checkbox"
+                            value="Reef Petrels had their strongest breeding improvement in West Shoals.">
+                        Reef Petrels had their strongest breeding improvement in West Shoals. </label><br>
+
+                    <label for="Case 5 c" style="margin-bottom: 10px; margin-right: 200px;"><input type="checkbox" id="Case 5 c"
+                            name="case_4_checkbox"
+                            value="North Reach recorded the highest total number of successful fledglings.">
+                        North Reach recorded the highest total number of successful fledglings.</label><br>
+
+                    <label for="Case 5 d" style="margin-bottom: 10px;"><input type="checkbox" id="Case 5 d"
+                            name="case_4_checkbox" value="None of the above."> None of the
+                        above. </label><br>
+
+
+                </form>
+
+            </div>
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        <h2 id="forward">Do you want to move to the next question?</h2><br>
+                        <p id="inside_confirm_p">You won't be able to change your answer</p>
+                        <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_6.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                </div>
+            </div>
+            <div> <button class="end_btn" onclick="showConfirmBox()">Next Case </button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/case_2.js"></script>
+    <script src="./js/cases.js"></script>
+
+</body>
+
+</html>

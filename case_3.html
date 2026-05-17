@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Cases | Case 3</title>
+    <link rel="stylesheet" href="./style/case_7.css">
+    <link rel="stylesheet" href="./style/cases_general.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="btn_active">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <div class="question_container" style="margin-right: 30px;">
+                <h1>Researchers began tracking a new disease that has been ravaging the fauna population on the Aldarin Island. The following shows the number of new infections across the Island over the first half of the year:</h1>
+                <br>
+                <table class="exhibit-table">
+                    <tr>
+                        <th></th>
+                        <th>Month 1</th>
+                        <th>Month 2</th>
+                        <th>Month 3</th>
+                        <th>Month 4</th>
+                        <th>Month 5</th>
+                        <th>Month 6</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Number of New Infections</td>
+                        <td>
+                            <div class="draggable" draggable="true">60</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">84</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">138</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">143</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">198</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">225</div>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+
+                <p>The growth from Month 6 to Month 12 (end of the year) is expected to be <div class="draggable" draggable="true" style="display: inline-block;">15%</div> percentage points higher than the growth rate from Month 1 to Month 6.</p>
+                <br>
+                <div id="question_title">Question</div><br>
+
+                What is the expected number of new infections for Month 12? Round up your answer to the closest whole number. <br><br>
+                <br>
+                <form>
+                    <div class="input_box">
+                        <label for="case_3">Answer = </label>
+                        <input type="text" class="input_answer" id="Case 3 Input" min="0">
+                    </div>
+
+                </form>
+                <br>
+            </div>
+            <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        <h2 id="forward">Do you want to move to the next question?</h2><br>
+                        <p id="inside_confirm_p">You won't be able to change your answer</p>
+                        <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_4.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right_screen column">
+        <div class="container">
+            <div class="calculator">
+                <div class="display">
+                    <div id="historyDisplay" class="history-display"></div>
+                    <input type="text" id="inputField" lang="en">
+                    <hr id="sep_line">
+                    <div id="result" class="draggable" draggable="true"> 0 </div>
+
+                </div>
+                <div class="buttons">
+                    <button class="calculator-btn items" data-value="AC">AC</button>
+                    <button class="calculator-btn items" data-value="(">(</button>
+                    <button class="calculator-btn items" data-value=")">)</button>
+                    <button class="calculator-btn items" data-value="C">C</button>
+                    <button class="calculator-btn" data-value="7">7</button>
+                    <button class="calculator-btn" data-value="8">8</button>
+                    <button class="calculator-btn" data-value="9">9</button>
+                    <button class="calculator-btn items" data-value="/">/</button>
+                    <button class="calculator-btn" data-value="4">4</button>
+                    <button class="calculator-btn" data-value="5">5</button>
+                    <button class="calculator-btn" data-value="6">6</button>
+                    <button class="calculator-btn items" data-value="*">*</button>
+                    <button class="calculator-btn" data-value="1">1</button>
+                    <button class="calculator-btn" data-value="2">2</button>
+                    <button class="calculator-btn" data-value="3">3</button>
+                    <button class="calculator-btn items" data-value="-">-</button>
+                    <button class="calculator-btn" data-value="0">0</button>
+                    <button class="calculator-btn" data-value=".">.</button>
+                    <button class="calculator-btn" data-value="=">=</button>
+                    <button class="calculator-btn items" data-value="+">+</button>
+                </div>
+            </div>
+        </div>
+        <script src="./js/case_1.js"></script>
+        <script src="./js/cases.js"></script>
+
+</body>
+
+</html>

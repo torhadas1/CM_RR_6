@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Cases | Test Review</title>
+    <link rel="stylesheet" href="./style/test_review.css">
+    <link rel="stylesheet" href="./style/cases_general.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <p id="count_down"></p>
+    <br>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column" >
+            <div class="question_container">
+                <table id="storageTable">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+              
+                <div class="container_main_screen">
+                    <div class="overlay" id="overlay" hidden>
+                        <div class="confirm-box">
+                            Do you want to download your answers?
+                            <br>
+                            <button onclick="isConfirm(false)" class="confirm_btn">Go back to page</button>
+                            <!-- <button id="downloadCSV" class="confirm_btn">Download</button> -->
+                        </div>
+                    </div>
+                </div>
+                  <div> <button class="end_btn" id="downloadCSV">Download answers</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="./js/test_review.js"></script>
+        <script src="./js/cases.js"></script>
+
+</body>
+
+</html>

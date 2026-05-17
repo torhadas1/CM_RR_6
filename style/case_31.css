@@ -1,0 +1,366 @@
+/*build the roots to the colors*/
+:root {
+  --stone: #38464b;
+  --nav_blue: #a1a9b7;
+  --black_green: #013220;
+  --capiton: #fff;
+  --boring_silver: rgba(154, 185, 188, 0.8);
+  --just_black: #000000;
+  --outer: #333f50;
+  --inner: #222a35;
+}
+
+/*the whole page css*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--inner);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
+  color: var(--capiton);
+}
+
+.body {
+  max-width: 1500px;
+  max-height: 640px;
+
+}
+
+/* make the columns look aligned*/
+.column {
+  float: left;
+  text-align: center;
+}
+
+.left {
+  width: 7%;
+}
+
+.main_screen {
+  width: 60%;
+  margin-left: 50px;
+  border-left: 15px solid rgb(226, 226, 255);
+  border-top: 3px solid rgb(226, 226, 255);
+  border-bottom: 3px solid rgb(226, 226, 255);
+  border-right: 15px solid rgb(226, 226, 255);
+  height: 100vh;
+  overflow-y: auto;
+  background-color: var(--inner) !important;
+}
+
+/*the Research journal*/
+.right_screen {
+  border: solid 3px rgb(226, 226, 255);
+  border-right: solid 10px rgb(226, 226, 255);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--inner) !important;
+  padding: 20px 20px;
+  width: 25%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/*the main screen */
+.container_main_screen {
+  text-align: left;
+  margin-top: 20px;
+  margin-right: 30px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: var(--inner);
+  height: 95vh;
+}
+
+/*main screen scrollbar*/
+.container_main_screen::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--inner);
+}
+
+.container_main_screen::-webkit-scrollbar-thumb {
+  background-color: var(--capiton);
+  height: 20px;
+}
+
+/*build the menu style*/
+.menu {
+  width: 170px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 15px;
+}
+
+
+/*the menu buttons*/
+.btn {
+  display: block;
+  border-radius: 10px;
+  border: 2px solid var(--just_black);
+  padding: 4px 7px;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  text-decoration: none;
+  position: relative;
+}
+
+.btn_active::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #17c0eb;
+  left: 20px;
+  display: none;
+}
+
+.btn i {
+  margin-right: 10px;
+}
+
+.btn_active {
+  display: block;
+  padding: 4px 7px;
+  background-color: #8497b0;
+  color: var(--capiton);
+  text-decoration: none;
+  position: relative;
+  border: 2px solid var(--just_black);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/*the sub-menu buttons*/
+.smenu {
+  background-color: var(--inner);
+  overflow: hidden;
+  transition: max-height 0.3s;
+  max-height: 0;
+  padding: 2px 2px;
+  margin-left: 10px;
+  max-height: 100%;
+}
+
+.smenu a {
+  display: block;
+  text-decoration: none;
+  padding: 4px 7px;
+  border-radius: 10px;
+  background-color: var(--nav_blue);
+  font-size: 16px;
+  color: var(--just_black);
+  margin: 4px 0;
+  position: relative;
+  border: 2px solid var(--just_black);
+}
+
+.smenu .btn_active {
+  color: white
+}
+
+.smenu a:hover::before {
+  opacity: 1;
+}
+
+.smenu a:hover {
+  color: var(--capiton);
+}
+
+.item:target .smenu {
+  max-height: 10em;
+}
+
+
+.overlay {
+  border-radius: 10px;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: fixed;
+  z-index: 1000;
+}
+
+.confirm-box {
+  border: 1px solid var(--capiton);
+  border-radius: 10px;
+  position: absolute;
+  width: 600px;
+  height: fit-content;
+  top: 25%;
+  left: 25%;
+  padding: 20px 15px;
+  text-align: center;
+  background: var(--outer);
+  z-index: 1001;
+}
+
+.end_btn {
+  font-size: 20px;
+  padding: 5px 12px;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  position: relative;
+  float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  border-color: rgb(179, 187, 255);
+  border-width: 3px;
+  cursor: pointer;
+  background-color: #d6dce5;
+  z-index: 1000;
+  height: fit-content;
+}
+
+#inside_confirm_p {
+  margin-bottom: 20px;
+  background: var(--outer);
+  text-align: center;
+  font-weight: 350;
+
+}
+
+#forward {
+  background: var(--outer)
+}
+
+.confirm_btn {
+  color: var(--just_black);
+  background-color: #d6dce5;
+  border-radius: 10px;
+  border-color: rgb(179, 187, 255);
+  border-width: 3px;
+  border-radius: 10px;
+  margin-top: 50px;
+  font-weight: 400;
+  padding: 2px 5px;
+  margin: 20px;
+}
+
+.right_screen {
+  text-align: center;
+}
+
+.calculator {
+  margin-left: 25px;
+  height: 380px;
+  width: 250px;
+  text-align: center;
+  background-color: var(--just_black);
+  border: 3px solid #ccc;
+  padding: 15px;
+}
+
+.display {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#result {
+  background-color: white;
+  width: 100%;
+
+}
+
+.buttons {
+  display: grid;
+  background-color: var(--just_black);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-top: 30px;
+}
+
+.calculator-btn {
+  height: 100%;
+  width: 100%;
+  background-color: #afabab;
+}
+
+.items {
+  background-color: #ffffff;
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  text-align: left;
+  margin-left: 50px;
+}
+
+td,
+th {
+  border: 1px solid #ffffff;
+  padding: 6px;
+  text-align: center;
+}
+
+td:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.draggable {
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px solid var(--just_black);
+  cursor: move;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
+
+.small_drag {
+  display: inline;
+}
+
+.question_container {
+  max-width: 100%;
+  text-align: left;
+  margin-left: 50px;
+  float: right;
+}
+
+.question_title {
+  font-weight: 400;
+}
+
+label {
+  float: left;
+  font-weight: 400;
+}
+
+#answer {
+  background-color: var(--clr_of_input);
+  border: 1px solid var(--capiton);
+  border-radius: 10px;
+  width: 120px;
+  float: left;
+}
+
+#count_down {
+  position: absolute;
+  left: 40%;
+}
+
+#result {
+  width: fit-content;
+}
+
+#inputField {
+  width: 100%;
+}

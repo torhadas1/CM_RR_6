@@ -1,0 +1,704 @@
+/*build the roots to the colors*/
+:root {
+    --stone: #38464b;
+    --nav_blue: #a1a9b7;
+    --black_green: #013220;
+    --capiton: #fff;
+    --boring_silver: rgba(154, 185, 188, 0.8);
+    --just_black: #000000;
+    --outer: #333f50;
+    --inner: #222a35;
+}
+
+.body {
+    max-width: 1500px;
+    max-height: 640px;
+}
+
+/* the whole page css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--outer);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 22px;
+    color: var(--capiton);
+    font-weight: 320;
+
+}
+
+#research_info_title,
+#study,
+#objectivex {
+    font-weight: bold;
+}
+
+.the_main_text {
+    background-color: var(--inner);
+}
+
+/* make the columns look aligned*/
+.column {
+    float: left;
+    text-align: center;
+}
+
+.left {
+    width: 7%;
+    margin-left: 15px;
+}
+
+.main_screen {
+    width: 60%;
+    margin-left: 50px;
+    border-left: 15px solid rgb(226, 226, 255);
+    border-top: 3px solid rgb(226, 226, 255);
+    border-bottom: 3px solid rgb(226, 226, 255);
+    border-right: 15px solid rgb(226, 226, 255);
+    height: 100vh;
+    background-color: var(--inner) !important;
+}
+
+.inner_ul {
+    background-color: var(--inner);
+    margin-left: 20px;
+
+}
+
+.inner_list {
+    padding-left: 20px;
+    background-color: var(--inner);
+}
+
+/*the main screen */
+.container_main_screen {
+    text-align: left;
+    margin-top: 20px;
+    margin-right: 20px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: var(--inner) !important;
+    height: 95vh;
+}
+
+#objective {
+    background-color: var(--inner);
+}
+
+.main_screen .container {
+    background-color: var(--inner);
+}
+
+/*main screen scrollbar*/
+.container_main_screen::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--inner);
+}
+
+.container_main_screen::-webkit-scrollbar-thumb {
+    background-color: var(--capiton);
+    height: 20px;
+}
+
+/*build the menu style*/
+.menu {
+    width: 170px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+/*the menu buttons*/
+.btn {
+    display: block;
+    border-radius: 10px;
+    border: 2px solid var(--just_black);
+    padding: 4px 7px;
+    background-color: #edf4ff;
+    color: var(--just_black);
+    text-decoration: none;
+    position: relative;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#written {
+    margin-left: 60px;
+}
+
+.btn_active::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #17c0eb;
+    left: 20px;
+    display: none;
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+.btn_active {
+    display: block;
+    padding: 4px 7px;
+    background-color: #8497b0;
+    color: var(--capiton);
+    text-decoration: none;
+    position: relative;
+    border: 2px solid var(--just_black);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/*the sub-menu buttons*/
+.smenu {
+    background-color: var(--outer);
+    overflow: hidden;
+    transition: max-height 0.3s;
+    max-height: 0;
+    padding: 2px 2px;
+    margin-left: 10px;
+    max-height: 100%;
+}
+
+.smenu a {
+    display: block;
+    text-decoration: none;
+    padding: 6px 18px;
+    border-radius: 10px;
+    background-color: var(--nav_blue);
+    font-size: 16px;
+    color: var(--just_black);
+    margin: 4px 0;
+    position: relative;
+    border: 2px solid var(--just_black);
+}
+
+.smenu a:hover::before {
+    opacity: 1;
+}
+
+.smenu a:hover {
+    color: var(--capiton);
+}
+
+.item:target .smenu {
+    max-height: 10em;
+    font-weight: bold
+}
+
+/*the Research journal*/
+.right_screen {
+    border: solid 3px rgb(226, 226, 255);
+    border-right: solid 10px rgb(226, 226, 255);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--inner) !important;
+    padding: 20px 20px;
+    width: 25%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 10px;
+    margin-top: 0px;
+}
+
+.journal_container {
+    background-color: var(--inner) !important;
+}
+
+
+
+/*right screen scrollbar */
+.right_screen::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--inner);
+}
+
+.right_screen::-webkit-scrollbar-thumb {
+    background-color: var(--capiton);
+    height: 20px;
+}
+
+
+.overlay {
+    border-radius: 10px;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: fixed;
+    z-index: 1000;
+}
+
+.confirm-box {
+    border: 1px solid var(--capiton);
+    border-radius: 10px;
+    position: absolute;
+    width: 600px;
+    height: fit-content;
+    top: 25%;
+    left: 25%;
+    padding: 20px 15px;
+    text-align: center;
+    background: var(--outer);
+    z-index: 1001;
+}
+
+#clearStorage {
+    position: relative;
+    left: 0;
+    bottom: 20px;
+    margin-left: 30px;
+    float: right;
+    z-index: 1000;
+    height: fit-content;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+    border-width: 3px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 12px;
+    background-color: #d40000;
+    color: white;
+    position: absolute;
+    font-weight: 500;
+}
+
+.main_screen .end_btn {
+    font-size: 20px;
+    padding: 5px 12px;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    position: relative;
+    float: right;
+    font-weight: 500;
+    margin-top: 20px;
+    border-radius: 10px;
+    border-color: rgb(179, 187, 255);
+    border-width: 3px;
+    cursor: pointer;
+    background-color: #d6dce5;
+    z-index: 1000;
+    height: fit-content;
+}
+
+#inside_confirm_p {
+    margin-bottom: 40px;
+    text-align: center;
+    float: left;
+
+    font-weight: 200;
+    background: var(--outer)
+}
+
+
+#forward {
+    background: var(--outer);
+    font-weight: 500;
+}
+
+.confirm_btn {
+    color: var(--just_black);
+    background-color: #d6dce5;
+    border-radius: 10px;
+    border-color: rgb(179, 187, 255);
+    border-width: 3px;
+    border-radius: 10px;
+    margin-top: 50px;
+    font-weight: 400;
+    padding: 2px 5px;
+    margin: 20px;
+}
+
+
+/*change the scroll bar*/
+#objective {
+    margin-left: 50px;
+}
+
+#first_exhibit {
+    margin-left: 50px;
+}
+
+#second_exhibit {
+    margin-left: 50px;
+}
+
+.island {
+    position: relative;
+    display: inline-block;
+    background-color: var(--inner);
+}
+
+.chart {
+    position: relative;
+    display: inline-block;
+    background-color: var(--inner);
+
+}
+
+.island img {
+    width: 100%;
+    /* Adjust as needed */
+    /* height: auto; */
+}
+
+.chart img {
+    width: 100%;
+    /* Adjust as needed */
+    height: auto;
+}
+
+.island .draggable,
+.island .afterDrag {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    top: 10%;
+    left: 41%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 27px;
+    /* Add other styles as needed */
+}
+
+.chart .draggable,
+.chart .afterDrag {
+    position: absolute;
+    text-align: center;
+    padding-top: 2px;
+    font-size: 22px;
+    font-weight: bold;
+    /* top: 10%;
+    left: 41%; */
+    transform: translate(-50%, -50%);
+    /* width: 27px;
+    height: 27px; */
+    margin: auto;
+
+    /* Add other styles as needed */
+}
+.right_screen #second_exhibit {
+    height: 100vh;
+    margin-left: 50px;
+}
+
+#study {
+    margin-left: 50px;
+}
+
+
+.contianer_drag {
+    background-color: var(--inner);
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.draggable,
+.draggable_widget,
+.sortable {
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+    border-style: dashed;
+    cursor: move;
+    width: fit-content;
+
+}
+
+.right_screen ui-sortable {
+    gap: 20px;
+}
+
+.right_screen .draggable {
+    margin: 10px;
+    border: 0px;
+    width: fit-content;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+}
+
+.sortable .title {
+    background-color: var(--inner);
+}
+
+.right_screen .div {
+    background-color: var(--inner);
+
+}
+
+.right_screen .sortable {
+    margin: 10px;
+    border: 0px;
+    width: fit-content;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+}
+
+
+.afterDrag {
+    background-color: var(--just_black);
+    color: grey;
+    border: 1px solid grey;
+    cursor: move;
+    width: 50%;
+    width: 100%;
+    text-align: left;
+}
+
+.right_screen .afterDrag {
+    margin: 10px;
+    border: 0px;
+    width: fit-content;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+}
+
+.draggable.dragging {
+    opacity: 0.5;
+}
+
+#objective_line {
+    display: inline;
+    position: relative;
+}
+
+.study_drag {
+    display: inline;
+    position: relative;
+}
+
+#myChart {
+    margin: 50px;
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--capiton);
+}
+
+.journal_container {
+    background-color: var(--inner);
+}
+
+.draggable .title {
+    background-color: var(--inner);
+}
+
+.draggable .text {
+    color: var(--inner);
+}
+
+.remove {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    right: -20px;
+}
+
+.timer {
+    text-align: center;
+    margin: 5px;
+}
+
+
+
+.sortable .remove {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    right: -20px;
+}
+
+.dragging .title {
+    width: 1px;
+    height: 1px;
+    font-size: 1px;
+}
+
+/* Collapsible text in right_screen sortable/draggable */
+.right_screen .sortable,
+.right_screen .draggable {
+    position: relative;
+    /* padding-right: 32px; */
+    width: 90%;
+    /* Space for the arrow */
+    overflow: visible;
+    /* Ensure content doesn't clip */
+    /* two color background */
+    /* background: linear-gradient(to bottom,var(--inner) 29px,  var(--capiton) 29px); */
+
+}
+
+
+
+.expand-arrow.show {
+    display: flex;
+    /* Show if needed */
+}
+
+.expand-arrow.expanded {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* --- START: Collapsible Item CSS --- */
+
+/* The container for the text that will collapse */
+.right_screen .text-content {
+    max-height: 1.4em;
+    /* Limits to one line */
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+
+    color: var(--just_black);
+    background-color: white;
+    text-overflow: ellipsis;
+    transition: max-height 0.25s ease-out;
+    cursor: pointer;
+}
+
+/* The state when the item is expanded */
+.right_screen .expanded .text-content {
+    max-height: 300px;
+    /* Or a large enough value */
+    white-space: normal;
+
+}
+
+/* The arrow button */
+.expand-arrow {
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+    width: 24px;
+    height: 1.1em;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #333f50;
+    cursor: pointer;
+    z-index: 5;
+    display: none;
+    /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease-out;
+}
+
+/* The arrow when the item is expanded */
+.expand-arrow.expanded {
+    transform: rotate(180deg);
+}
+
+/* --- END: Collapsible Item CSS --- */
+/*right screen scrollbar */
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--inner);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--capiton);
+  height: 20px;
+}
+
+/* Table Styling for Exhibits */
+.exhibit-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: var(--inner) !important;
+    margin-top: 10px;
+}
+
+.exhibit-table th {
+    background-color: var(--inner) !important;
+    color: var(--capiton);
+    border: 1px solid #dddddd;
+    border-bottom: 3px solid #dddddd; ;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.exhibit-table td {
+    padding: 3px;
+    text-align: center;
+    font-size: 22px;
+    border: 1px solid #dddddd;
+    color: var(--capiton);
+}
+
+.exhibit-table tbody tr:nth-child(odd) {
+    background-color: #333f50 !important;
+}
+
+.exhibit-table tbody tr:nth-child(even) {
+    background-color: #8497b0 !important;
+}
+
+.exhibit-table tbody tr:nth-child(odd) td {
+    background-color: #333f50 !important;
+}
+
+.exhibit-table tbody tr:nth-child(even) td {
+    background-color: #8497b0 !important;
+}
+
+.exhibit-table td.draggable,
+.exhibit-table td .draggable {
+    background-color: var(--capiton) !important;
+    color: var(--just_black);
+    border: 2px dashed var(--just_black);
+    padding: 5px 10px;
+    display: inline-block;
+    cursor: move;
+    font-weight: bold;
+}
+
+/* After drag state for table draggables */
+.exhibit-table td .afterDrag {
+    background-color: var(--just_black) !important;
+    color: grey !important;
+    border: 1px solid grey !important;
+    cursor: move;
+    width: auto;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+/* Make first column bold */
+.exhibit-table td:first-child {
+    font-weight: bold;
+}
+
+/* Margin for study text sections */
+#first_exhibit,
+#second_exhibit {
+    margin-left: 50px;
+}
+
+.study-text {
+    margin-left: 50px;
+    background-color: var(--inner);
+}
+.study-text li{
+    background-color: var(--inner);
+}

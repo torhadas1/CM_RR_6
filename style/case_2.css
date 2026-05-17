@@ -1,0 +1,345 @@
+/*build the roots to the colors*/
+:root {
+  --stone: #38464b;
+  --nav_blue: #a1a9b7;
+  --black_green: #013220;
+  --capiton: #fff;
+  --boring_silver: rgba(154, 185, 188, 0.8);
+  --just_black: #000000;
+  --outer: #333f50;
+  --inner: #222a35;
+}
+
+/*the whole page css*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--inner);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
+  color: var(--capiton);
+}
+
+.body {
+  max-width: 1500px;
+  max-height: 640px;
+}
+
+/* make the columns look aligned*/
+.column {
+  float: left;
+  text-align: center;
+}
+
+.left {
+  width: 7%;
+}
+
+.main_screen {
+  width: 60%;
+  margin-left: 60px;
+  border-left: 15px solid rgb(226, 226, 255);
+  border-top: 3px solid rgb(226, 226, 255);
+  border-bottom: 3px solid rgb(226, 226, 255);
+  border-right: 15px solid rgb(226, 226, 255);
+  overflow-y: auto;
+  height: 100vh;
+  background-color: var(--inner) !important;
+}
+
+/*the main screen */
+.container_main_screen {
+  text-align: left;
+  margin-top: 20px;
+  margin-right: 30px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: var(--inner);
+  height: 95vh;
+}
+
+/*main screen scrollbar*/
+.container_main_screen::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--inner);
+}
+
+.container_main_screen::-webkit-scrollbar-thumb {
+  background-color: var(--capiton);
+  height: 20px;
+}
+
+
+
+/*the Research journal*/
+.right_screen {
+  border: solid 3px rgb(226, 226, 255);
+  border-right: solid 10px rgb(226, 226, 255);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--inner) !important;
+  padding: 20px 20px;
+  width: 25%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/*right screen scrollbar */
+.right_screen::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--inner);
+}
+
+.right_screen::-webkit-scrollbar-thumb {
+  background-color: var(--capiton);
+  height: 20px;
+}
+
+
+.overlay {
+  border-radius: 10px;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: fixed;
+  z-index: 1001;
+}
+
+.confirm-box {
+  border: 1px solid var(--capiton);
+  border-radius: 10px;
+  position: absolute;
+  width: 600px;
+  height: fit-content;
+  top: 25%;
+  left: 25%;
+  padding: 20px 15px;
+  text-align: center;
+  background: var(--outer);
+  z-index: 1001;
+}
+
+.end_btn {
+  font-size: 20px;
+  padding: 5px 12px;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  position: relative;
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 50px;
+  font-weight: 500;
+  border-radius: 10px;
+  border-color: rgb(179, 187, 255);
+  border-width: 3px;
+  cursor: pointer;
+  background-color: #d6dce5;
+  z-index: 1000;
+  height: fit-content;
+}
+
+#inside_confirm_p {
+  margin-bottom: 20px;
+  font-weight: 350;
+  background: var(--outer)
+}
+
+#forward {
+  background: var(--outer)
+}
+
+.confirm_btn {
+  color: var(--just_black);
+  background-color: #d6dce5;
+  border-radius: 10px;
+  border-color: rgb(179, 187, 255);
+  border-width: 3px;
+  border-radius: 10px;
+  margin-top: 50px;
+  font-weight: 400;
+  padding: 2px 5px;
+  margin: 20px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  text-align: center;
+  margin: 10px;
+}
+
+
+td,
+th {
+  border: 1px solid #dddddd;
+  padding: 3px;
+  font-size: 22px;
+  text-align: center;
+}
+
+td:nth-child {
+  background-color: #dddddd;
+}
+
+.draggable {
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px dashed var(--just_black);
+  cursor: move;
+}
+
+.sortable {
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px solid var(--just_black);
+  cursor: move;
+  font-size: 22px;
+}
+
+.smenu .btn_active {
+  color: white
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
+
+.remove {
+  position: absolute;
+  top: -2px;
+  right: -20px;
+}
+
+.small_drag {
+  display: inline;
+}
+
+.question_container {
+  max-width: 95%;
+  text-align: left;
+  float: right;
+  margin-right: 15px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+#the_question_title {
+  font-weight: 500;
+}
+
+label {
+  float: left;
+}
+
+#answer {
+  width: 200px;
+  display: block;
+  background-color: #000000;
+}
+
+
+
+.right_screen .draggable {
+  margin: 10px;
+  border: 0px;
+  width: fit-content;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px var(--just_black);
+}
+
+.right_screen .sortable {
+  margin: 10px;
+  width: fit-content;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px var(--just_black);
+  text-align: left;
+  padding: 0;
+
+}
+
+
+.afterDrag {
+  background-color: var(--just_black);
+  color: grey;
+  border: 1px solid grey;
+  cursor: move;
+  text-align: center;
+}
+
+.right_screen .afterDrag {
+  margin: 10px;
+  border: 0px;
+  width: fit-content;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px var(--just_black);
+}
+
+.row_title {
+  width: 120px;
+}
+/* Table Styling for Exhibits */
+.exhibit-table {
+    border-collapse: collapse;
+    width: 90%;
+    background-color: var(--inner) !important;
+    margin-top: 10px;
+}
+
+.exhibit-table th {
+    background-color: var(--inner) !important;
+    color: var(--capiton);
+    border: 1px solid #dddddd;
+    border-bottom: 3px solid #dddddd; ;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.exhibit-table td {
+    padding: 3px;
+    text-align: center;
+    font-size: 22px;
+    border: 1px solid #dddddd;
+    color: var(--capiton);
+}
+
+.exhibit-table tbody tr:nth-child(odd) {
+    background-color: #333f50 !important;
+}
+
+.exhibit-table tbody tr:nth-child(even) {
+    background-color: #8497b0 !important;
+}
+
+.exhibit-table tbody tr:nth-child(odd) td {
+    background-color: #333f50 !important;
+}
+
+.exhibit-table tbody tr:nth-child(even) td {
+    background-color: #8497b0 !important;
+}
+
+
+/* Make first column bold */
+.exhibit-table td:first-child {
+    font-weight: bold;
+}

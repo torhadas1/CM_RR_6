@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Cases | Case 1</title>
+    <link rel="stylesheet" href="./style/case_7.css">
+    <link rel="stylesheet" href="./style/cases_general.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <style>
+        #tutorialPopupBox {
+            background: #333f50;
+            border: 3px solid #888;
+            border-radius: 18px;
+            box-shadow: 0 2px 18px rgba(0,0,0,0.4);
+            padding: 40px 40px 32px 40px;
+            width: 82%;
+            margin-left: 100px;
+            height: 530px;
+            color: #fff;
+            text-align: left;
+            margin-left: px;
+            font-size: 1.18em;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .tutorial-title {
+            font-weight: bold;
+            font-size: 30px;
+            background-color: #333f50;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+        .tutorial-text {
+            margin-bottom: 36px;
+            font-size: 24px;
+            color: #fff;
+            background-color: #333f50;
+        }
+        .tutorial-continue-btn {
+            font-size: 18px;
+            color: #222a35;
+            background: #d6dce5;
+            border: 2px solid #888;
+            border-radius: 8px;
+            padding: 4px 36px;
+            font-weight: 500;
+            margin-top: 240px;
+            align-self: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .tutorial-continue-btn:hover {
+            background: #bfc7d1;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="btn_active">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <div class="question_container" style="margin-right: 30px;">
+                <h1>Horned Armadillos are one of the species currently thriving in the Aldarin Island. A group of researchers are investigating their population dynamics and have mapped out their population by zone and age group:</h1>
+                <br>
+                <table class="exhibit-table">
+                    <tr>
+                        <th>Zones</th>
+                        <th>Juvenile</th>
+                        <th>Reproductive</th>
+                        <th>Senior</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Teklan Hills</td>
+                        <td>
+                            <div class="draggable" draggable="true">50</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">170</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">90</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Mistveil Woods</td>
+                        <td>
+                            <div class="draggable" draggable="true">40</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">126</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">64</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Bluebell Woods</td>
+                        <td>
+                            <div class="draggable" draggable="true">27</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">100</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">33</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Rosefield</td>
+                        <td>
+                            <div class="draggable" draggable="true">20</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">70</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">30</div>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+
+                <div id="question_title">Question</div><br>
+                <p>Assuming:</p>
+                <ul style="list-style-type: disc; padding-left: 30px;">
+                    <li>P represents future population</li>
+                    <li>n represents number of years from present</li>
+                    <li>The population will double every <div class="draggable" draggable="true" style="display: inline-block;">7</div> years</li>
+                    <li>The population shown above represent the initial population at present</li>
+                </ul>
+                <br>
+                <p>What is the best equation to calculate the future Horned Armadillo population?</p>
+                <br>
+                <form>
+                    <radio>
+                        <label for="Case 1 a">
+                            <input type="radio" id="Case 1 a" name="case_1_radio" value="P = (820 / n) + 2^7"
+                                style="margin-bottom: 10px;"> P = (820 / n) + 2<sup style="font-size: 18px;">7</sup>;
+                        </label><br>
+                        <label for="Case_1_b" style="margin-bottom: 10px;"> <input type="radio" id="Case 1 b"
+                                name="case_1_radio" value="P = 820 * 2^(n/7)" style="margin-bottom: 10px;"> P = 820 &times; 2<sup style="font-size: 18px;">(n/7)</sup> </label><br>
+                        <label for="Case_1_c" style="margin-bottom: 10px;"><input type="radio" id="Case 1 c"
+                                name="case_1_radio" value="P = (840 / n) + 2^7" style="margin-bottom: 10px;"> P = (840 / n) +2<sup style="font-size: 18px;">7</sup></label><br>
+                        <label for="Case_1_d" style="margin-bottom: 10px;"><input type="radio" id="Case 1 d"
+                                name="case_1_radio" value="P = 840 * 2^(n/7)" style="margin-bottom: 10px;"> P = 840 &times; 2<sup style="font-size: 18px;">(n/7)</sup></label><br>
+
+                    </radio>
+
+                </form>
+
+            </div>
+            <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+
+            <div class="container_main_screen">
+                <div id="tutorialPopup" style="
+  display:none;
+  position:absolute;
+  top:50px; left:95px; right:0; bottom:0;
+  background: rgba(0,0,0,0);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+">
+                    <div id="tutorialPopupBox">
+                        <div class="tutorial-title">Tutorial</div>
+                        <div class="tutorial-text">
+                            Please get ready for the next stage of the assessment.<br><br>
+                            You will have to answer a few cases to complete your research.
+                        </div>
+                        <button id="tutorialContinueBtn" class="tutorial-continue-btn">Continue</button>
+                    </div>
+                </div>
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        <h2 id="forward">Do you want to move to the next question?</h2><br>
+                        <p id="inside_confirm_p">You won't be able to change your answer</p>
+                        <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_2.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right_screen column">
+        <div class="container">
+            <div class="calculator">
+                <div class="display">
+                    <div id="historyDisplay" class="history-display"></div>
+                    <input type="text" id="inputField" lang="en">
+                    <hr id="sep_line">
+                    <div id="result" class="draggable" draggable="true"> 0 </div>
+
+                </div>
+                <div class="buttons">
+                    <button class="calculator-btn items" data-value="AC">AC</button>
+                    <button class="calculator-btn items" data-value="(">(</button>
+                    <button class="calculator-btn items" data-value=")">)</button>
+                    <button class="calculator-btn items" data-value="C">C</button>
+                    <button class="calculator-btn" data-value="7">7</button>
+                    <button class="calculator-btn" data-value="8">8</button>
+                    <button class="calculator-btn" data-value="9">9</button>
+                    <button class="calculator-btn items" data-value="/">/</button>
+                    <button class="calculator-btn" data-value="4">4</button>
+                    <button class="calculator-btn" data-value="5">5</button>
+                    <button class="calculator-btn" data-value="6">6</button>
+                    <button class="calculator-btn items" data-value="*">*</button>
+                    <button class="calculator-btn" data-value="1">1</button>
+                    <button class="calculator-btn" data-value="2">2</button>
+                    <button class="calculator-btn" data-value="3">3</button>
+                    <button class="calculator-btn items" data-value="-">-</button>
+                    <button class="calculator-btn" data-value="0">0</button>
+                    <button class="calculator-btn" data-value=".">.</button>
+                    <button class="calculator-btn" data-value="=">=</button>
+                    <button class="calculator-btn items" data-value="+">+</button>
+                </div>
+            </div>
+        </div>
+        <script src="./js/case_1.js"></script>
+        <script src="./js/cases.js"></script>
+
+</body>
+
+
+</html>

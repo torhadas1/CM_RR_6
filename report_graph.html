@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph</title>
+    <link rel="stylesheet" href="./style/calculator.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <hr style="height:20px; visibility:hidden;" />
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="" class="btn">Investigation</a>
+                        <div class="smenu">
+                        </div>
+                    </li>
+                    <li class="item" id="analysis">
+                        <a href="" class="btn">Analysis</a>
+                        <div class="smenu">
+                        </div>
+                    </li>
+                    <li class="item" id="report">
+                        <a href="" class="btn_active">Report</a>
+                        <div class="smenu">
+                            <a href=''>Written</a>
+                            <a href="" class="btn_active">Graph</a>
+                            <a href="">Visual</a>
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+            </div>
+        </div>
+    </div>
+    <div class="container_main_screen">
+        <div class="overlay" id="overlay" hidden>
+            <div class="confirm-box">
+                <div onclick="closeConfirmBox()" class="close"></div>
+                <h2 id="forward">Do you want to move to the next section?</h2><br>
+                <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                <br>
+                <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>
+                <button onclick="location.href='report_graph.html#analysis';" class="confirm_btn">Move to next
+                    section</button>
+            </div>
+        </div>
+    </div>
+    <div class="main_screen column">
+        <br>
+        <h1 id="title" style="text-align:left; margin-left:40px; margin-right:40px;">Select the best graph to visualize how the total deaths across Mistveil and Bluebell Woods break down by individual zones and causes.</h1>
+        <form id="selectForm">
+            <div class="option">
+                <input type="radio" name="page" value="report_visual_bar.html" id="bar" checked>
+                <label for="bar"><img src="./img/bar_chart.png"></label>
+            </div>
+
+            <div class="option">
+                <input type="radio" name="page" value="report_visual_line.html" id="line">
+                <label for="line"><img src="./img/line_chart.png"></label>
+            </div>
+
+            <div class="option">
+                <input type="radio" name="page" value="report_visual_pie.html" id="pie">
+                <label for="pie"><img class="line" src="./img/pie_chart.png"></label>
+            </div>
+
+        </form>
+        <button class="report_end_btn" id="continueButtonGraph" type="button">Next Question</button>
+
+    </div>
+    <div class="right_screen">
+        <div class="journal_container" id="Journal_container">
+            <h2>Research Journal</h2>
+            <hr>
+        </div>
+    </div>
+    </div>
+    <script src="./js/calculator.js"></script>
+</body>
+
+</html>

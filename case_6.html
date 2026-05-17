@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Cases | Case 6</title>
+    <link rel="stylesheet" href="./style/case_7.css">
+    <link rel="stylesheet" href="./style/cases_general.css">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="btn_active">Case 6</a>
+
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <br>
+            <div class="question_container">Marine biologists on the Aldarin Island recorded the number of Silverfin fish sightings across five coastal zones over four consecutive weeks:
+            </div>
+
+            <br>
+            <div class="question_container" style="margin-right: 30px;">
+                <table class="exhibit-table">
+                    <tr>
+                        <th>Coast</th>
+                        <th>Week 1</th>
+                        <th>Week 2</th>
+                        <th>Week 3</th>
+                        <th>Week 4</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">North Reach</td>
+                        <td>
+                            <div class="draggable" draggable="true">18</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">22</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">20</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">40</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">East Inlet</td>
+                        <td>
+                            <div class="draggable" draggable="true">25</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">27</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">26</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">24</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">South Cliffs</td>
+                        <td>
+                            <div class="draggable" draggable="true">12</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">15</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">15</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">16</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">West Shoals</td>
+                        <td>
+                            <div class="draggable" draggable="true">30</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">32</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">31</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">29</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Hidden Inlet</td>
+                        <td>
+                            <div class="draggable" draggable="true">7</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">10</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">12</div>
+                        </td>
+                        <td>
+                            <div class="draggable" draggable="true">15</div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <div class="question_container" style="margin-right: 20px;">
+                <div id="the_question_title" style="font-weight: 500;">Question <br><br></div>
+
+                <p id="the_question">Report the mean, mode, and median weekly sightings based on the data above.
+
+                </p><br>
+                <div class="input_box">
+                    <label for="Case 6 Mean">Mean = </label>
+                    <input type="text" class="input_answer" id="Case 6 Mean" min="0" style="margin-bottom: 10px;">
+                    <br>
+                    <label for="Case 6 Median">Median = </label>
+                    <input type="text" class="input_answer" id="Case 6 Median" min="0" style="margin-bottom: 10px;">
+                    <br>
+                    <label for="Case 6 Mode">Mode = </label>
+                    <input type="text" class="input_answer" id="Case 6 Mode" min="0" style="margin-bottom: 10px;">
+                </div>
+
+            </div>
+            <button class="end_btn" onclick="showConfirmBox()">Finish Study</button>
+
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        <h2 id="forward">Are you sure you want to finish the test?</h2><br>
+                        <p id="inside_confirm_p">You won't be able to change your answer</p>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='test_review.html';" class="confirm_btn">Finish test</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="right_screen column">
+        <div class="container">
+            <div class="calculator">
+                <div class="display">
+                    <div id="historyDisplay" class="history-display"></div>
+                    <input type="text" id="inputField" lang="en">
+                    <hr id="sep_line">
+                    <div id="result" class="draggable" draggable="true"> 0 </div>
+
+                </div>
+                <div class="buttons">
+                    <button class="calculator-btn items" data-value="AC">AC</button>
+                    <button class="calculator-btn items" data-value="(">(</button>
+                    <button class="calculator-btn items" data-value=")">)</button>
+                    <button class="calculator-btn items" data-value="C">C</button>
+                    <button class="calculator-btn" data-value="7">7</button>
+                    <button class="calculator-btn" data-value="8">8</button>
+                    <button class="calculator-btn" data-value="9">9</button>
+                    <button class="calculator-btn items" data-value="/">/</button>
+                    <button class="calculator-btn" data-value="4">4</button>
+                    <button class="calculator-btn" data-value="5">5</button>
+                    <button class="calculator-btn" data-value="6">6</button>
+                    <button class="calculator-btn items" data-value="*">*</button>
+                    <button class="calculator-btn" data-value="1">1</button>
+                    <button class="calculator-btn" data-value="2">2</button>
+                    <button class="calculator-btn" data-value="3">3</button>
+                    <button class="calculator-btn items" data-value="-">-</button>
+                    <button class="calculator-btn" data-value="0">0</button>
+                    <button class="calculator-btn" data-value=".">.</button>
+                    <button class="calculator-btn" data-value="=">=</button>
+                    <button class="calculator-btn items" data-value="+">+</button>
+                </div>
+            </div>
+        </div>
+        <script src="./js/case_1.js"></script>
+        <script src="./js/cases.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="./style/calculator.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="" class="btn">Investigation</a>
+                        <div class="smenu">
+                        </div>
+                    </li>
+                    <li class="item" id="analysis">
+                        <a href="" class="btn">Analysis</a>
+                        <div class="smenu">
+                        </div>
+                    </li>
+                    <li class="item" id="report">
+                        <a href="" class="btn_active">Report</a>
+                        <div class="smenu">
+                            <a href="" class="btn_active">Written</a>
+                            <a href="report_graph.html">Graph</a>
+                            <a href="">Visual</a>
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="container_main_screen">
+
+            <div class="overlay" id="overlay" hidden>
+                <div class="confirm-box">
+                    <div onclick="closeConfirmBox()" class="close"></div>
+                    <h2 id="forward">Do you want to move to the next section?</h2> <br>
+                    <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                    <br>
+                    <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>
+                    <button onclick="location.href='report_graph.html';" class="confirm_btn">Move to next
+                        section</button>
+                </div>
+            </div>
+        </div>
+        <div class="main_screen column">
+            <div class="container_main_screen">
+                <div id="#written" class="Written">
+                    With the additional data, the kill rate for Dashed Coyotes in Mistveil Woods
+                    <select class="select_box" name="reach" id="5. a. Written Report" required>
+                        <option disabled selected value></option>
+                        <option value="will">will</option>
+                        <option value="won't">won't</option>
+                    </select>
+                    increase. Under the new rate, annual prey killed is expected to be
+                    <input type="text" name="number_1" id="5. b. Written Report" class="report_answer">
+                    compared to disease deaths of
+                    <input type="text" name="number_2" id="5. c. Written Report" class="report_answer">.
+                    <input type="text" name="number_3" id="5. d. Written Report" class="report_answer">% of the total deaths were due to the Dashed Coyotes in Mistveil Woods.
+                    <br><br>
+                    With the additional data, the kill rate for Dashed Coyotes in Bluebell Woods
+                    <select class="select_box" name="reach2" id="5. e. Written Report" required>
+                        <option disabled selected value></option>
+                        <option value="will">will</option>
+                        <option value="won't">won't</option>
+                    </select>
+                    increase. Under the new rate, annual prey killed is expected to be
+                    <input type="text" name="number_5" id="5. f. Written Report" class="report_answer">
+                    compared to disease deaths of
+                    <input type="text" name="number_6" id="5. g. Written Report" class="report_answer">.
+                    <input type="text" name="number_7" id="5. h. Written Report" class="report_answer">% of the total deaths were due to the Dashed Coyotes in Bluebell Woods.
+
+
+                </div>
+
+            </div>
+                            <button class="end_btn" onclick="showConfirmBox()">Next Question</button>
+
+        </div>
+        <div class="right_screen">
+            <div class="journal_container" id="Journal_container">
+                <h2>Research Journal</h2>
+                <hr>
+            </div>
+        </div>
+        <script src="./js/calculator.js"></script>
+
+</body>
+
+</html>

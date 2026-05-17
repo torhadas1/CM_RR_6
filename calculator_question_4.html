@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/calculator.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>Analysis | Question 3</title>
+</head>
+
+<body class="body">
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a onclick="SaveToLocalStorage()" href='index.html' class="btn">Investigation</a>
+                        <div class="smenu">
+                        </div>
+                    </li>
+                    <li class="item" id="analysis">
+                        <a href="#analysis" class="btn_active">Analysis</a>
+                        <div class="smenu">
+                            <a href=''>Question 1</a>
+                            <a href=''>Question 2</a>
+                            <a href=''>Question 3</a>
+                            <a href='' class="btn_active">Question 4</a>
+                            <a href=''>Review</a>
+                        </div>
+                    </li>
+                    <li class="item" id="report">
+                        <a href="" class="btn">Report</a>
+                        <div class="smenu">
+                        </div>
+                    </li>
+                </ul>
+                <button id="clearStorage">Restart</button>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="container_main_screen">
+            <div class="overlay" id="overlay" hidden>
+                <div class="confirm-box">
+                    <h2 id="forward">Do you want to move to the review?</h2><br>
+                    <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                    <br>
+                    <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>
+                    <button
+                        onclick="localStorage.setItem('calculator_state','review'); location.href='calculator_review.html'; moveToNextQuestion();"
+                        class="confirm_btn">Move to
+                        review</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_screen column">
+            <div class="container_main_screen"  >
+                <div class="question_text" style="float: left; position: unset; margin-bottom: 0px;">
+                    <div class="question_title" >Question 4</div>
+                    <br>
+                    What percentage of yearly prey lost in the Mistveil and Bluebell Woods are due to Dashed Coyotes?
+                    Round your answer to the closest whole percentage point.
+                    <div class="input_box" >
+                        <label for="first_answer" style="float: none;">Mistveil Woods</label><br><br>
+                        <input type="text" style="display: inline;" class="input_answer" id="4. Question 4 Yearly prey loss due to Dashed Coyotes in Mistveil Woods (%)"
+                            name="Yearly prey loss due to Dashed Coyotes in Mistveil Woods (%)" min="0"> %
+                        <br><br>
+                        <label for="second_answer" style="float: none;">Bluebell Woods</label><br><br>
+                        <input type="text" style="display: inline;" class="input_answer" id="4. Question 4 Yearly prey loss due to Dashed Coyotes in Bluebell Woods (%)"
+                            name="Yearly prey loss due to Dashed Coyotes in Bluebell Woods (%)" min="0"> %
+
+                    </div>
+                </div>
+                <div class="calculator">
+                    <div class="display">
+                        <div id="historyDisplay" class="history-display"></div>
+                        <input type="text" id="inputField">
+                        <hr id="sep_line">
+                        <div id="result" class="draggable" draggable="true">0</div>
+                    </div>
+                    <div class="buttons">
+                        <button class="calculator-btn items" data-value="AC">AC</button>
+                        <button class="calculator-btn items" data-value="(">(</button>
+                        <button class="calculator-btn items" data-value=")">)</button>
+                        <button class="calculator-btn items" data-value="C">C</button>
+                        <button class="calculator-btn" data-value="7">7</button>
+                        <button class="calculator-btn" data-value="8">8</button>
+                        <button class="calculator-btn" data-value="9">9</button>
+                        <button class="calculator-btn items" data-value="/">/</button>
+                        <button class="calculator-btn" data-value="4">4</button>
+                        <button class="calculator-btn" data-value="5">5</button>
+                        <button class="calculator-btn" data-value="6">6</button>
+                        <button class="calculator-btn items" data-value="*">*</button>
+                        <button class="calculator-btn" data-value="1">1</button>
+                        <button class="calculator-btn" data-value="2">2</button>
+                        <button class="calculator-btn" data-value="3">3</button>
+                        <button class="calculator-btn items" data-value="-">-</button>
+                        <button class="calculator-btn" data-value="0">0</button>
+                        <button class="calculator-btn" data-value=".">.</button>
+                        <button class="calculator-btn" data-value="=">=</button>
+                        <button class="calculator-btn items" data-value="+">+</button>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 22vh;"> <button style="margin-top: 50px; margin-bottom: 60px;" class="end_btn"  onclick="showConfirmBox()">Review</button>
+            </div>
+        </div>
+        <div class="right_screen" id="Journal_container">
+            <div class="journal_container">
+                <h2>Research Journal</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="./js/calculator.js"></script>
+</body>
+
+</html>
