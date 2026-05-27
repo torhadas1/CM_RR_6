@@ -622,7 +622,7 @@
 /* Table Styling for Exhibits */
 .exhibit-table {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
     background-color: var(--inner) !important;
     margin-top: 10px;
 }

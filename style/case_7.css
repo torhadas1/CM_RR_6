@@ -553,3 +553,255 @@ from {
 .exhibit-table td:first-child {
   font-weight: bold;
 }
+
+
+.draggable,
+.draggable_widget,
+.sortable {
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+    border-style: dashed;
+    cursor: move;
+    width: fit-content;
+
+}
+
+.right_screen ui-sortable {
+    gap: 20px;
+}
+
+.right_screen .draggable {
+    margin: 10px;
+    border: 0px;
+    width: fit-content;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+}
+
+.sortable .title {
+    background-color: var(--inner);
+}
+
+.right_screen .div {
+    background-color: var(--inner);
+
+}
+
+.right_screen .sortable {
+    margin: 10px;
+    border: 0px;
+    width: fit-content;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+}
+
+
+
+.draggable.dragging {
+    opacity: 0.5;
+}
+
+#objective_line {
+    display: inline;
+    position: relative;
+}
+
+.study_drag {
+    display: inline;
+    position: relative;
+}
+
+#myChart {
+    margin: 50px;
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--capiton);
+}
+
+.journal_container {
+    background-color: var(--inner);
+}
+
+.draggable .title {
+    background-color: var(--inner);
+}
+
+.draggable .text {
+    color: var(--inner);
+}
+
+.remove {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    right: -20px;
+}
+
+.timer {
+    text-align: center;
+    margin: 5px;
+}
+
+
+
+.sortable .remove {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    right: -20px;
+}
+
+.dragging .title {
+    width: 1px;
+    height: 1px;
+    font-size: 1px;
+}
+
+/* Collapsible text in right_screen sortable/draggable */
+.right_screen .sortable,
+.right_screen .draggable {
+    position: relative;
+    /* padding-right: 32px; */
+    width: 90%;
+    /* Space for the arrow */
+    overflow: visible;
+    /* Ensure content doesn't clip */
+    /* two color background */
+    /* background: linear-gradient(to bottom,var(--inner) 29px,  var(--capiton) 29px); */
+
+}
+
+
+
+.expand-arrow.show {
+    display: flex;
+    /* Show if needed */
+}
+
+.expand-arrow.expanded {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* --- START: Collapsible Item CSS --- */
+
+/* The container for the text that will collapse */
+.right_screen .text-content {
+    max-height: 1.4em;
+    /* Limits to one line */
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+
+    color: var(--just_black);
+    background-color: white;
+    text-overflow: ellipsis;
+    transition: max-height 0.25s ease-out;
+    cursor: pointer;
+}
+
+/* The state when the item is expanded */
+.right_screen .expanded .text-content {
+    max-height: 300px;
+    /* Or a large enough value */
+    white-space: normal;
+
+}
+
+/* The arrow button */
+.expand-arrow {
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+    width: 24px;
+    height: 1.1em;
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #333f50;
+    cursor: pointer;
+    z-index: 5;
+    display: none;
+    /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease-out;
+}
+
+/* The arrow when the item is expanded */
+.expand-arrow.expanded {
+    transform: rotate(180deg);
+}
+
+/* --- END: Collapsible Item CSS --- */
+/*right screen scrollbar */
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: var(--inner);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--capiton);
+  height: 20px;
+}
+
+/* Table Styling for Exhibits */
+.exhibit-table {
+    border-collapse: collapse;
+    width: 95%;
+    background-color: var(--inner) !important;
+    margin-top: 10px;
+}
+
+.exhibit-table th {
+    background-color: var(--inner) !important;
+    color: var(--capiton);
+    border: 1px solid #dddddd;
+    border-bottom: 3px solid #dddddd; ;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.exhibit-table td {
+    padding: 3px;
+    text-align: center;
+    font-size: 22px;
+    border: 1px solid #dddddd;
+    color: var(--capiton);
+}
+
+.exhibit-table tbody tr:nth-child(odd) {
+    background-color: #333f50 !important;
+}
+
+.exhibit-table tbody tr:nth-child(even) {
+    background-color: #8497b0 !important;
+}
+
+.exhibit-table tbody tr:nth-child(odd) td {
+    background-color: #333f50 !important;
+}
+
+.exhibit-table tbody tr:nth-child(even) td {
+    background-color: #8497b0 !important;
+}
+
+.exhibit-table td.draggable,
+.exhibit-table td .draggable {
+    background-color: var(--capiton) !important;
+    color: var(--just_black);
+    border: 2px dashed var(--just_black);
+    padding: 5px 10px;
+    display: inline-block;
+    cursor: move;
+    font-weight: bold;
+}
+
+
+

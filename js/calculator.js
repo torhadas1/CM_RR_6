@@ -117,6 +117,11 @@ $(document).ready(function () {
           value = $("#result").text();
         }
 
+        // Strip thousand separators so values like "1,200" work in eval()
+        if (typeof value === 'string') {
+          value = value.replace(/,/g, '');
+        }
+
         if (value === "AC") {
           $(this).val('');
         } else if (value === "C") {

@@ -179,7 +179,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Mistveil - Coyotes', 'Bluebell - Coyotes', 'Mistveil - Illness', 'Bluebell - Illness'],
+        labels: ['Mistveil - Death due to Coyotes', 'Bluebell - Death due to Coyotes', 'Mistveil - Death due to Illness', 'Bluebell - Death due to Illness'],
         datasets: [{
             label: 'Total deaths',
             data: [0, 0, 0, 0],  // Default values
