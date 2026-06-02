@@ -82,6 +82,9 @@ $(document).ready(function () {
           value = ui.helper.text();
         }
 
+        // Strip thousand separators so values like "1,300" register as a number
+        if (typeof value === 'string') value = value.replace(/,/g, '');
+
         if (value.includes("%")) {
           // Replace % with an empty string, convert to number and divide by 100
           value = Number(value.replace("%", "")) / 100;
@@ -850,6 +853,9 @@ $(function () {
       else {
         value = ui.helper.find('.text-content').text(); // For other elements, find text-content
       }
+
+      // Strip thousand separators so values like "1,300" register as a number
+      if (typeof value === 'string') value = value.replace(/,/g, '');
 
       if (value.includes("%")) {
         // Replace % with an empty string, convert to number and divide by 100

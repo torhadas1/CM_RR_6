@@ -660,20 +660,6 @@ from {
     font-size: 1px;
 }
 
-/* Collapsible text in right_screen sortable/draggable */
-.right_screen .sortable,
-.right_screen .draggable {
-    position: relative;
-    /* padding-right: 32px; */
-    width: 90%;
-    /* Space for the arrow */
-    overflow: visible;
-    /* Ensure content doesn't clip */
-    /* two color background */
-    /* background: linear-gradient(to bottom,var(--inner) 29px,  var(--capiton) 29px); */
-
-}
-
 
 
 .expand-arrow.show {
