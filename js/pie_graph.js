@@ -86,6 +86,8 @@ $(function () {
             let otherTitle = ui.helper.attr('title');
             // get the value by replacing the data-title from totalValue
             let value = ui.helper.find('.text-content').text();
+            // Strip thousand separators so Chart.js can parse "1,500" as a number
+            if (typeof value === 'string') value = value.replace(/,/g, '');
             if (value.includes("%")) {
                 // Replace % with an empty string, convert to number and divide by 100
                 value = Number(value.replace("%", "")) / 100;
